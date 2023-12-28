@@ -102,6 +102,13 @@ class TaskItem {
   markAsUndone() {
     this._isDone = false;
   }
+
+  render() {
+    var container = document.createElement('div');
+    container.classList.add('taskContainer');
+    return container;
+  }
 }
+
 
 export { TaskItem, Priority };
