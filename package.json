@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/tudorjnu/todo-list#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "webpack-cli": "^5.1.4"
   }
