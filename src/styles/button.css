@@ -1,0 +1,12 @@
+.text-button {
+  padding: 8px;
+  gap: 8px;
+  transition: color 0.2s ease-in-out;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.icon-button {
+  color: var(--color-neutral-400);
+}

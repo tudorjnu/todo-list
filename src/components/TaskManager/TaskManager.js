@@ -1,9 +1,8 @@
-import './TaskManager.css';
-import taskManagerHtml from './TaskManager.html';
-import TaskItem from './TaskItem';
+import "./TaskManager.css";
+import taskManagerHtml from "./TaskManager.html";
+import TaskItem from "./TaskItem";
 
 class TaskManager {
-
   domElements = {
     taskTitle: null,
     taskDescription: null,
@@ -14,12 +13,10 @@ class TaskManager {
     taskCancel: null,
   };
 
-  cacheDom() {
-
-  }
+  cacheDom() {}
 
   init() {
-    document.body.insertAdjacentHTML('beforeend', taskManagerHtml);
+    document.body.insertAdjacentHTML("beforeend", taskManagerHtml);
   }
 
   editTask(taskID) {
@@ -31,10 +28,18 @@ class TaskManager {
   }
 
   createTask(id, title, description, dueDate, priority, project) {
-    const taskItem = new TaskItem(id, title, description, dueDate, priority, project, {
-      onEdit: (task) => this.editTask(task),
-      onRemove: (taskId) => this.removeTask(taskId)
-    });
+    const taskItem = new TaskItem(
+      id,
+      title,
+      description,
+      dueDate,
+      priority,
+      project,
+      {
+        onEdit: (task) => this.editTask(task),
+        onRemove: (taskId) => this.removeTask(taskId),
+      },
+    );
     this.tasks.push(taskItem);
     return taskItem;
   }

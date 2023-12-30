@@ -4,19 +4,13 @@
   grid-template-rows: auto auto;
   grid-template-areas:
     "checkmark header"
-    "checkmark content";
+    ". content";
   column-gap: 10px;
   padding: 10px;
 }
 
 .task__checkbox {
   grid-area: checkmark;
-}
-
-.task__checkbox-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .task__header {
@@ -34,8 +28,8 @@
   font-weight: bold;
 }
 
-.task__menu {
-  /* Style your task menu (edit, set due date, delete) */
+.task__menu > .icon-button > span {
+  font-size: 1.25rem;
 }
 
 .task__description {

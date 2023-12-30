@@ -21,15 +21,15 @@
     "@babel/core": "^7.23.6",
     "@babel/preset-env": "^7.23.6",
     "babel-jest": "^29.7.0",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
     "style-loader": "^3.3.3",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@material/web": "^1.1.1",
-    "materialize-css": "^1.0.0-rc.2",
-    "mustache": "^4.2.0"
+    "@material/web": "^1.1.1"
   }
 }

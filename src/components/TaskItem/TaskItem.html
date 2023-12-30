@@ -1,22 +1,20 @@
 <template id="task-template">
   <div class="task">
-    <label class="task__checkbox-label">
-      <md-checkbox class="task__checkbox" touch-target="wrapper" {{#isDone}}checked{{/isDone}}></md-checkbox>
-    </label>
+    <input type="checkbox" class="task__checkbox" name="isDone" value="0" />
     <div class="task__header">
       <h4 class="task__title">{{ title }}</h4>
       <div class="task__menu">
-        <md-icon-button>
-          <md-icon class="material-symbols-rounded">edit</md-icon>
-        </md-icon-button>
+        <button class="icon-button">
+          <span class="material-symbols-rounded"> edit </span>
+        </button>
 
-        <md-icon-button>
-          <md-icon class="material-symbols-rounded">edit_calendar</md-icon>
-        </md-icon-button>
+        <button class="icon-button">
+          <span class="material-symbols-rounded"> edit_calendar </span>
+        </button>
 
-        <md-icon-button>
-          <md-icon class="material-symbols-rounded">delete</md-icon>
-        </md-icon-button>
+        <button class="icon-button">
+          <span class="material-symbols-rounded"> delete </span>
+        </button>
       </div>
     </div>
     <div class="task__content">
