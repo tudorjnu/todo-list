@@ -1,3 +1,6 @@
+import "./TaskItem.css";
+import taskItemHtml from "./TaskItem.html";
+
 const Priority = {
   low: 0,
   medium: 1,
@@ -13,6 +16,7 @@ class TaskItem {
     this._priority = priority;
     this._isDone = false;
     this._project = project;
+    this._template = null;
   }
 
   // Getters
@@ -46,35 +50,40 @@ class TaskItem {
 
   // Setters
   set title(title) {
-    if (title === '') {
-      throw new Error('Title cannot be empty');
+    if (title === "") {
+      throw new Error("Title cannot be empty");
     }
     if (title.length > 30) {
-      throw new Error('Title cannot be longer than 30 characters');
+      throw new Error("Title cannot be longer than 30 characters");
     }
     if (title.length < 3) {
-      throw new Error('Title cannot be shorter than 3 characters');
+      throw new Error("Title cannot be shorter than 3 characters");
     }
-    if (typeof title !== 'string') {
-      throw new Error('Title must be a string');
+    if (typeof title !== "string") {
+      throw new Error("Title must be a string");
     }
     this._title = title;
   }
 
   set description(description) {
-    if (typeof description !== 'string') {
-      throw new Error('Description must be a string');
+    if (typeof description !== "string") {
+      throw new Error("Description must be a string");
     }
     this._description = description;
   }
 
   set dueDate(dueDate) {
-    const isInvalidDate = typeof dueDate !== 'object' || dueDate.constructor !== Date;
+    const isInvalidDate =
+      typeof dueDate !== "object" || dueDate.constructor !== Date;
     if (isInvalidDate) {
-      throw new Error('Due date must be a date');
+      throw new Error("Due date must be a date");
     }
 
-    const hasTime = dueDate.getHours() !== 0 || dueDate.getMinutes() !== 0 || dueDate.getSeconds() !== 0 || dueDate.getMilliseconds() !== 0;
+    const hasTime =
+      dueDate.getHours() !== 0 ||
+      dueDate.getMinutes() !== 0 ||
+      dueDate.getSeconds() !== 0 ||
+      dueDate.getMilliseconds() !== 0;
     if (!hasTime) {
       dueDate.setHours(0, 0, 0, 0);
     }
@@ -83,14 +92,14 @@ class TaskItem {
 
   set priority(priority) {
     if (!Object.values(Priority).includes(priority)) {
-      throw new Error('Invalid priority');
+      throw new Error("Invalid priority");
     }
     this._priority = priority;
   }
 
   set project(project) {
-    if (typeof project !== 'string') {
-      throw new Error('Project must be a string');
+    if (typeof project !== "string") {
+      throw new Error("Project must be a string");
     }
     this._project = project;
   }
@@ -103,12 +112,31 @@ class TaskItem {
     this._isDone = false;
   }
 
+  getTaskTemplate() {
+    if (!this._template) {
+      document.body.insertAdjacentHTML("beforeend", taskItemHtml);
+      this._template = document.getElementById("task-template");
+    }
+    return this._template;
+  }
+
   render() {
-    var container = document.createElement('div');
-    container.classList.add('taskContainer');
-    return container;
+    let template = this.getTaskTemplate();
+    const taskElement = template.content.cloneNode(true).querySelector(".task");
+
+    taskElement.querySelector(".task__title").textContent = this.title;
+    taskElement.querySelector(".task__description").textContent =
+      this.description;
+    taskElement.querySelector(".task__due-date").textContent =
+      `${this.dueDate.toLocaleDateString()}`;
+
+    // Set the checkbox state
+    const checkbox = taskElement.querySelector(".task__checkbox");
+    checkbox.checked = this.isDone;
+    // Add event listener or other logic to handle checkbox changes
+
+    return taskElement;
   }
 }
-
 
 export { TaskItem, Priority };

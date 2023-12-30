@@ -1,0 +1,49 @@
+.task {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "checkmark header"
+    "checkmark content";
+  column-gap: 10px;
+  padding: 10px;
+}
+
+.task__checkbox {
+  grid-area: checkmark;
+}
+
+.task__checkbox-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task__header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task__content {
+  grid-area: content;
+}
+
+.task__title {
+  font-weight: bold;
+}
+
+.task__menu {
+  /* Style your task menu (edit, set due date, delete) */
+}
+
+.task__description {
+  font-size: small;
+  color: var(--color-neutral-300);
+}
+
+.task__due-date {
+  font-size: small;
+  color: var(--accent-color);
+}

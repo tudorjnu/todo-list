@@ -1,0 +1,27 @@
+<template id="task-template">
+  <div class="task">
+    <label class="task__checkbox-label">
+      <md-checkbox class="task__checkbox" touch-target="wrapper" {{#isDone}}checked{{/isDone}}></md-checkbox>
+    </label>
+    <div class="task__header">
+      <h4 class="task__title">{{ title }}</h4>
+      <div class="task__menu">
+        <md-icon-button>
+          <md-icon class="material-symbols-rounded">edit</md-icon>
+        </md-icon-button>
+
+        <md-icon-button>
+          <md-icon class="material-symbols-rounded">edit_calendar</md-icon>
+        </md-icon-button>
+
+        <md-icon-button>
+          <md-icon class="material-symbols-rounded">delete</md-icon>
+        </md-icon-button>
+      </div>
+    </div>
+    <div class="task__content">
+      <div class="task__description">{{ description }}</div>
+      <div class="task__due-date">{{ dueDate }}</div>
+    </div>
+  </div>
+</template>
