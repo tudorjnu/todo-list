@@ -33,7 +33,7 @@
 .task__menu {
   display: inline-flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
   opacity: 0;
   visibility: hidden;
   transition:

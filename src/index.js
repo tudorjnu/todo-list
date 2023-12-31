@@ -7,9 +7,7 @@ import "./styles/global.css";
 import "./styles/button.css";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const ui = new UI();
   const taskList = new TaskList();
-  const main = document.querySelector("main");
   const taskListHtml = document.querySelector(".task-list");
 
   for (let task of tasks) {
@@ -21,5 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   taskList.filterPriority(Priority.high);
   // taskList.sortTasks("date");
 
-  taskListHtml.innerHTML = taskList.render().innerHTML;
+  const ui = new UI(taskList);
+  ui.render();
+  // taskListHtml.innerHTML = taskList.render().innerHTML;
 });

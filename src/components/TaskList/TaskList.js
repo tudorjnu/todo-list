@@ -50,9 +50,17 @@ class TaskList {
     return tasks.filter((task) => {
       const isPriorityMatch = priority === "all" || task.priority === priority;
       const isProjectMatch = project === "all" || task.project === project;
-      console.log(isPriorityMatch && isProjectMatch);
       return isPriorityMatch && isProjectMatch;
     });
+  }
+
+  getProjects() {
+    /* make an iterable of all the projects */
+    const projects = new Set();
+    this._tasks.forEach((task) => {
+      projects.add(task.project);
+    });
+    return projects;
   }
 
   render() {
