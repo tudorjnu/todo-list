@@ -1,0 +1,14 @@
+.task-list {
+  padding: 16px;
+  gap: 8px;
+  width: clamp(500px, 70%, 800px);
+}
+
+.task-list__header {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+}
+
+.task-list__header > .task-list__header-menu {
+  justify-self: end;
+}

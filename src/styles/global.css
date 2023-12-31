@@ -57,6 +57,12 @@ body {
   grid-template-columns: 250px 1fr;
 }
 
+main {
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+}
+
 aside {
   color: var(--sidebar-fg-color);
   background-color: var(--sidebar-bg-color);
@@ -73,12 +79,14 @@ aside > section {
   gap: 8px;
 }
 
-.sidebar-button {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  gap: 8px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
 .main {
@@ -133,7 +141,6 @@ input[type="checkbox"] {
   height: 1.15em;
   border: 0.1em solid var(--color-neutral-400);
   border-radius: 0.25em;
-  transform: translateY(-0.075em);
 
   justify-self: center;
   align-self: center;

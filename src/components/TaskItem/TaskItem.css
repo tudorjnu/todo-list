@@ -5,8 +5,10 @@
   grid-template-areas:
     "checkmark header"
     ". content";
-  column-gap: 10px;
   padding: 10px;
+  column-gap: 16px;
+
+  position: relative;
 }
 
 .task__checkbox {
@@ -15,9 +17,8 @@
 
 .task__header {
   grid-area: header;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 100px;
 }
 
 .task__content {
@@ -26,6 +27,23 @@
 
 .task__title {
   font-weight: bold;
+  margin: 8px 0px;
+}
+
+.task__menu {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.task:hover .task__menu {
+  opacity: 1;
+  visibility: visible;
 }
 
 .task__menu > .icon-button > span {

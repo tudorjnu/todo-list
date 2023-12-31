@@ -1,23 +1,25 @@
 import { TaskItem, Priority } from "./components/TaskItem/TaskItem.js";
+import TaskList from "./components/TaskList/TaskList.js";
+import UI from "./components/UI/UI.js";
+import tasks from "./dummyTasks.js";
+
 import "./styles/global.css";
 import "./styles/button.css";
 
-import "@material/web/iconbutton/icon-button.js";
-// import "@material/web/button/text-button.js";
-import "@material/web/checkbox/checkbox.js";
-
 document.addEventListener("DOMContentLoaded", () => {
-  const taskList = document.querySelector(".task-list");
-  console.log(taskList);
+  const ui = new UI();
+  const taskList = new TaskList();
+  const main = document.querySelector("main");
+  const taskListHtml = document.querySelector(".task-list");
 
-  const task = new TaskItem(
-    1,
-    "Learn JavaScript",
-    "Description here",
-    new Date(),
-    Priority.medium,
-    "Learning",
-  );
+  for (let task of tasks) {
+    taskList.addTask(task);
+  }
 
-  taskList.appendChild(task.render());
+  // taskList.filterPriority(Priority.high);
+  taskList.filterProject("Learning");
+  taskList.filterPriority(Priority.high);
+  // taskList.sortTasks("date");
+
+  taskListHtml.innerHTML = taskList.render().innerHTML;
 });

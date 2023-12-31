@@ -130,10 +130,8 @@ class TaskItem {
     taskElement.querySelector(".task__due-date").textContent =
       `${this.dueDate.toLocaleDateString()}`;
 
-    // Set the checkbox state
     const checkbox = taskElement.querySelector(".task__checkbox");
     checkbox.checked = this.isDone;
-    // Add event listener or other logic to handle checkbox changes
 
     return taskElement;
   }

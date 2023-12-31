@@ -20,26 +20,25 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL@20..48,100..700,0..1"
       rel="stylesheet"
     />
-    <script defer src="main.js"></script>
   </head>
 
   <body>
-    <aside>
+    <aside class="sidebar">
       <section>
-        <button class="text-button">
+        <button id="add-task-button" class="text-button">
           <span class="material-symbols-rounded"> add </span>
           Add Task
         </button>
-        <button class="text-button">
+        <button id="searchButton" class="text-button">
           <span class="material-symbols-rounded"> search </span>
           Search
         </button>
-        <button class="text-button">
+        <button id="todayViewButton" class="text-button">
           <span class="material-symbols-rounded"> calendar_today </span>
           Today
         </button>
-        <button class="text-button">
-          <span class="material-symbols-rounded"> calendar_month </span>
+        <button id="upcomingViewButton" class="text-button">
+          <span class="material-symbols-rounded"> upcoming </span>
           Upcoming
         </button>
       </section>
@@ -50,6 +49,5 @@
     <main>
       <div class="task-list"></div>
     </main>
-    <script src="main.js"></script>
   </body>
 </html>
