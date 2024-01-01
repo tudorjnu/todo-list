@@ -8,7 +8,17 @@
   padding: 10px;
   column-gap: 16px;
 
+  border-bottom: 2px groove var(--color-neutral-600);
+
   position: relative;
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.task:last-child::after {
+  display: none;
 }
 
 .task__checkbox {
