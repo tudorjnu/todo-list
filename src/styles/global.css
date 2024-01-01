@@ -18,7 +18,8 @@
   --sidebar-bg-color: var(--color-neutral-800);
   --sidebar-fg-color: var(--color-neutral-50);
 
-  --sidebar-color-over-background: var(--color-neutral-600);
+  --sidebar-color-over-background: var(--color-neutral-700);
+  --main-color-over-background: var(--color-neutral-700);
 
   --md-icon-font: "Material Icons Round";
   --md-icon-size: 1rem;
@@ -58,7 +59,7 @@ body {
 }
 
 main {
-  padding: 32px 16px;
+  padding: 32px 1rem;
   display: flex;
   justify-content: center;
 }
@@ -69,8 +70,8 @@ aside {
 
   display: flex;
   flex-direction: column;
-  padding: 32px 16px;
-  gap: 16px;
+  padding: 32px 1rem;
+  gap: 1rem;
 }
 
 aside > section {
@@ -102,51 +103,86 @@ h6 {
   align-items: stretch;
 }
 
-/* Buttons */
-button {
-  background-color: transparent;
-  border: none;
+hr {
+  width: 95%;
   border-radius: 8px;
-  color: var(--fg-color);
-  font-family: inherit;
-  font-size: inherit;
-  padding: 4px;
-  cursor: pointer;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  transition: color 0.2s ease-in-out;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+  border: 1px solid var(--color-neutral-600);
+  margin: 1rem auto;
 }
 
-button:hover {
+button,
+fieldset,
+input,
+legend,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+  /* border: 2px solid var(--color-neutral-600); */
   background-color: var(--sidebar-color-over-background);
+  border-radius: 0.25rem;
 }
 
-button:active {
-  background-color: var(--color-neutral-500);
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  font-size:
+    1.25rem / 1.5 "Roboto Serif",
+    sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+}
+
+textarea {
+  min-height: 10rem;
+}
+
+select {
+  min-width: 8rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  height: 1.5em;
+  width: 1.5em;
+  vertical-align: middle;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
 }
 
 /* Checkbox */
 input[type="checkbox"] {
-  appearance: none;
   background-color: transparent;
-  margin: 0;
-  font: inherit;
   width: 1.15em;
   height: 1.15em;
   border: 0.1em solid var(--color-neutral-400);
-  border-radius: 0.25em;
 
   justify-self: center;
   align-self: center;
 
   display: grid;
   place-content: center;
+}
+
+textarea {
+  min-height: 10rem;
 }
 
 input[type="checkbox"]::before {
@@ -170,4 +206,82 @@ input[type="checkbox"]:focus {
   outline-offset: max(2px, 0.15em);
 
   cursor: pointer;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: var(--color-neutral-400);
+}
+
+/* Buttons */
+button {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--fg-color);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 4px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  transition: color 0.2s ease-in-out;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+button[type="submit"] {
+  background-color: var(--accent-color);
+}
+
+button[type="submit"]:hover {
+  background-color: hsl(213, 73%, 40%);
+}
+
+button:active {
+  background-color: var(--color-neutral-500);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  /* Offset the shadow by the border width */
+  box-shadow: 0 0 0 2px var(--color-neutral-400);
+  border-radius: 0.25rem;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-neutral-400);
+}
+
+#add-task-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50vw;
+  top: 25vh;
+  padding: 1.5rem;
+
+  background-color: var(--color-neutral-800);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid var(--color-neutral-500);
+  border-radius: 8px;
+}
+
+#add-task-modal > form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.add-task-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

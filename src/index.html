@@ -25,19 +25,19 @@
   <body>
     <aside class="sidebar">
       <section class="sidebar-view">
-        <button id="add-task-button" class="text-button">
+        <button id="sidebar-add-task-button" class="text-button">
           <span class="material-symbols-rounded"> add </span>
           Add Task
         </button>
-        <button id="searchButton" class="text-button">
+        <button id="sidebar-search-button" class="text-button">
           <span class="material-symbols-rounded"> search </span>
           Search
         </button>
-        <button id="todayViewButton" class="text-button">
+        <button id="sidebar-today-button" class="text-button">
           <span class="material-symbols-rounded"> calendar_today </span>
           Today
         </button>
-        <button id="upcomingViewButton" class="text-button">
+        <button id="sidebar-upcoming-button" class="text-button">
           <span class="material-symbols-rounded"> upcoming </span>
           Upcoming
         </button>
@@ -46,8 +46,70 @@
         <h3>Projects</h3>
       </section>
     </aside>
+
     <main>
       <div class="task-list"></div>
     </main>
+
+    <div id="add-task-modal" class="add-task-modal">
+      <form name="add-task-modal-form">
+        <label for="form-task-title">
+          <input
+            id="form-task-title"
+            type="text"
+            name="title"
+            placeholder="Task name"
+          />
+        </label>
+        <label for="form-task-description">
+          <input
+            id="form-task-description"
+            type="text"
+            name="description"
+            placeholder="Description"
+          />
+        </label>
+        <hr />
+        <section class="add-task-buttons">
+          <section class="add-task-info">
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="schedule task"
+            >
+              <span class="material-symbols-rounded"> schedule </span>
+            </button>
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="task priority"
+            >
+              <span class="material-symbols-rounded"> priority </span>
+            </button>
+            <button class="icon-button" type="button" aria-label="task project">
+              <span class="material-symbols-rounded"> label </span>
+            </button>
+          </section>
+          <section class="add-task-form-controls">
+            <button
+              id="cancel-add-task-modal-button"
+              type="reset"
+              class="text-button"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="text-button">Add Task</button>
+          </section>
+        </section>
+      </form>
+    </div>
+    <template id="form-date-picker">
+      <input
+        type="datetime-local"
+        id="form-datetime-local"
+        name="date-time-local"
+        form="add-task-modal-form"
+      />
+    </template>
   </body>
 </html>

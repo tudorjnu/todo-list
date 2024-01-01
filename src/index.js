@@ -3,6 +3,7 @@ import TaskList from "./components/TaskList/TaskList.js";
 import UI from "./components/UI/UI.js";
 import tasks from "./dummyTasks.js";
 
+import "normalize.css";
 import "./styles/global.css";
 import "./styles/button.css";
 
@@ -21,5 +22,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ui = new UI(taskList);
   ui.render();
-  // taskListHtml.innerHTML = taskList.render().innerHTML;
 });

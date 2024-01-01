@@ -55,7 +55,6 @@ class TaskList {
   }
 
   getProjects() {
-    /* make an iterable of all the projects */
     const projects = new Set();
     this._tasks.forEach((task) => {
       projects.add(task.project);
