@@ -1,6 +1,5 @@
-import { TaskItem, Priority } from "./components/TaskItem/TaskItem.js";
 import TaskList from "./components/TaskList/TaskList.js";
-import UI from "./components/UI/UI.js";
+import App from "./App.js";
 import tasks from "./dummyTasks.js";
 
 import "normalize.css";
@@ -16,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // taskList.filterPriority(Priority.high);
-  taskList.filterProject("Learning");
-  taskList.filterPriority(Priority.high);
+  // taskList.filterProject("Learning");
+  // taskList.filterPriority(Priority.high);
   // taskList.sortTasks("date");
 
-  const ui = new UI(taskList);
-  ui.render();
+  const app = new App(taskList);
+  app.render();
 });
