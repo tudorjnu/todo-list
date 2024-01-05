@@ -51,8 +51,8 @@ class Sidebar {
     console.log("search");
   }
   todayView() {
-    console.log("today");
-    this.callbacks.onViewChange("today");
+    // console.log("today");
+    this.callbacks.setTodayView();
   }
   upcomingView() {
     console.log("upcoming");
@@ -142,6 +142,7 @@ class App {
     this.taskList = taskList;
     this.sidebar = new Sidebar({
       onViewChange: this.changeView.bind(this),
+      setTodayView: this.setTodayView.bind(this),
       // onAddTask: this.addTask.bind(this),
     });
     this.domElements = {
@@ -161,8 +162,33 @@ class App {
 
   bindEventListeners() {}
 
+  setTodayView() {
+    console.log("set today view");
+    this.taskList.setToday();
+    this.render();
+  }
+
   changeView(view) {
     this.view = view;
+    switch (view) {
+      case "inbox":
+        this.taskList.sortTasks("date");
+        this.taskList.filterPriority("all");
+        this.taskList.filterProject("all");
+        break;
+      case "today":
+        this.taskList.sortTasks("priority");
+        this.taskList.filterPriority("today");
+        this.taskList.filterProject("all");
+        break;
+      case "upcoming":
+        this.taskList.sortTasks("priority");
+        this.taskList.filterPriority("upcoming");
+        this.taskList.filterProject("all");
+        break;
+      default:
+        break;
+    }
     this.render();
   }
 
